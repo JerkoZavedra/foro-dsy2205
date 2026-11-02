@@ -1,0 +1,92 @@
+{
+  "id": "aada77bb-b534-4cba-814c-8a2507e9e8bc",
+  "name": "Foro en Linea - Local",
+  "values": [
+    {
+      "key": "usuarios",
+      "value": "http://localhost:8081",
+      "enabled": true,
+      "type": "default"
+    },
+    {
+      "key": "foro",
+      "value": "http://localhost:8080",
+      "enabled": true,
+      "type": "default"
+    },
+    {
+      "key": "adminUser",
+      "value": "admin",
+      "enabled": true,
+      "type": "default"
+    },
+    {
+      "key": "adminPass",
+      "value": "",
+      "enabled": true,
+      "type": "secret"
+    },
+    {
+      "key": "usuario1User",
+      "value": "usuario1",
+      "enabled": true,
+      "type": "default"
+    },
+    {
+      "key": "usuario1Pass",
+      "value": "",
+      "enabled": true,
+      "type": "secret"
+    },
+    {
+      "key": "usuario2User",
+      "value": "usuario2",
+      "enabled": true,
+      "type": "default"
+    },
+    {
+      "key": "usuario2Pass",
+      "value": "",
+      "enabled": true,
+      "type": "secret"
+    },
+    {
+      "key": "usuarioPruebaUsername",
+      "value": "usuarioprueba",
+      "enabled": true,
+      "type": "default"
+    },
+    {
+      "key": "usuarioPruebaPass",
+      "value": "",
+      "enabled": true,
+      "type": "secret"
+    },
+    {
+      "key": "usuarioPruebaId",
+      "value": "",
+      "enabled": true,
+      "type": "default"
+    },
+    {
+      "key": "temaId",
+      "value": "",
+      "enabled": true,
+      "type": "default"
+    },
+    {
+      "key": "temaIdAjeno",
+      "value": "",
+      "enabled": true,
+      "type": "default"
+    },
+    {
+      "key": "comentarioId",
+      "value": "",
+      "enabled": true,
+      "type": "default"
+    }
+  ],
+  "_postman_variable_scope": "environment",
+  "_postman_exported_using": "Foro en Linea S2"
+}

@@ -1,0 +1,5 @@
+# Ver tambien ms-usuarios/.gitignore y ms-foro/.gitignore
+.DS_Store
+*.log
+.vscode/
+.idea/
