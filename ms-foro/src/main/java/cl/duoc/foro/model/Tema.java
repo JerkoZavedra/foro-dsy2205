@@ -1,6 +1,6 @@
 package cl.duoc.foro.model;
 
-import java.time.Instant;
+import java.time.LocalDateTime;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -38,14 +38,14 @@ public class Tema {
     private String contenido;
 
     @Column(name = "FECHA_CREACION", nullable = false)
-    private Instant fechaCreacion;
+    private LocalDateTime fechaCreacion;
 
     public Tema() {
         // Constructor sin argumentos requerido por JPA.
     }
 
     public Tema(Long id, Long categoriaId, Long autorId, String autorUsername,
-                String titulo, String contenido, Instant fechaCreacion) {
+                String titulo, String contenido, LocalDateTime fechaCreacion) {
         this.id = id;
         this.categoriaId = categoriaId;
         this.autorId = autorId;
@@ -61,7 +61,7 @@ public class Tema {
     public String getAutorUsername() { return autorUsername; }
     public String getTitulo() { return titulo; }
     public String getContenido() { return contenido; }
-    public Instant getFechaCreacion() { return fechaCreacion; }
+    public LocalDateTime getFechaCreacion() { return fechaCreacion; }
 
     public void setId(Long id) { this.id = id; }
     public void setCategoriaId(Long categoriaId) { this.categoriaId = categoriaId; }
@@ -69,5 +69,5 @@ public class Tema {
     public void setAutorUsername(String autorUsername) { this.autorUsername = autorUsername; }
     public void setTitulo(String titulo) { this.titulo = titulo; }
     public void setContenido(String contenido) { this.contenido = contenido; }
-    public void setFechaCreacion(Instant fechaCreacion) { this.fechaCreacion = fechaCreacion; }
+    public void setFechaCreacion(LocalDateTime fechaCreacion) { this.fechaCreacion = fechaCreacion; }
 }

@@ -27,12 +27,13 @@ public class SeguridadConfig {
             .authenticationProvider(proveedor)
             .authorizeHttpRequests(a -> a
                 .requestMatchers("/api/estado").permitAll()
-                .requestMatchers(HttpMethod.GET, "/api/categorias", "/api/categorias/**").permitAll()
-                .requestMatchers(HttpMethod.GET, "/api/temas", "/api/temas/**").permitAll()
+                .requestMatchers(HttpMethod.GET, "/api/categorias/**").permitAll()
+                .requestMatchers(HttpMethod.GET, "/api/temas/**").permitAll()
                 .requestMatchers(HttpMethod.GET, "/api/comentarios/**").permitAll()
-                .requestMatchers("/api/temas", "/api/temas/**").authenticated()
-                .requestMatchers("/api/comentarios", "/api/comentarios/**").authenticated()
-                .anyRequest().denyAll())
+                // Unico catch-all: cualquier otra combinacion metodo+ruta de este
+                // microservicio (POST/PUT/DELETE sobre /api/temas o /api/comentarios)
+                // exige autenticacion; no hay rutas publicas fuera de las anteriores.
+                .anyRequest().authenticated())
             .httpBasic(Customizer.withDefaults());
         return http.build();
     }

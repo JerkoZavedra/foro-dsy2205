@@ -1,6 +1,6 @@
 package cl.duoc.foro.service;
 
-import java.time.Instant;
+import java.time.LocalDateTime;
 import java.util.List;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -47,7 +47,7 @@ public class ComentarioService {
     public ComentarioResponse crear(Long temaId, ComentarioRequest datos, UsuarioAutenticado autor) {
         temaService.obtener(temaId);
         Comentario nuevo = new Comentario(null, temaId, autor.id(), autor.username(),
-            datos.contenido(), Instant.now());
+            datos.contenido(), LocalDateTime.now());
         Comentario guardado = repo.save(nuevo);
         log.info("Comentario creado id={} tema={} autor={}", guardado.getId(), temaId, autor.username());
         return ComentarioResponse.de(guardado);

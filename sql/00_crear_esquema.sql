@@ -1,7 +1,15 @@
 -- =====================================================================
 -- FORO EN LINEA - Paso 0: crear el esquema/usuario Oracle local
 -- Ejecutar UNA SOLA VEZ, conectado como usuario con privilegios DBA
--- (por ejemplo SYSTEM) sobre el PDB local XEPDB1 de Oracle XE.
+-- (por ejemplo SYSTEM o SYS) sobre el PDB local de Oracle.
+--
+-- NO ES NECESARIO si usas el contenedor Docker descrito en el README
+-- (imagen gvenzl/oracle-free con APP_USER=FORO_APP): ese contenedor ya
+-- crea este usuario automaticamente, con el rol DB_DEVELOPER_ROLE (que
+-- incluye los mismos privilegios otorgados mas abajo). Este script queda
+-- como referencia para una instalacion tradicional de Oracle (XE u otra),
+-- donde el PDB puede llamarse XEPDB1, FREEPDB1 u otro nombre: revisa
+-- "SELECT name FROM v$pdbs;" antes de asumirlo.
 -- =====================================================================
 
 -- 1. Crear el usuario/esquema que usaran ambos microservicios.

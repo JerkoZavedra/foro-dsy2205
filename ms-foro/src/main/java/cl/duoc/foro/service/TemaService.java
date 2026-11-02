@@ -1,6 +1,6 @@
 package cl.duoc.foro.service;
 
-import java.time.Instant;
+import java.time.LocalDateTime;
 import java.util.List;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -60,7 +60,7 @@ public class TemaService {
     public TemaResponse crear(TemaRequest datos, UsuarioAutenticado autor) {
         categoriaService.obtener(datos.categoriaId());
         Tema nuevo = new Tema(null, datos.categoriaId(), autor.id(), autor.username(),
-            datos.titulo(), datos.contenido(), Instant.now());
+            datos.titulo(), datos.contenido(), LocalDateTime.now());
         Tema guardado = repo.save(nuevo);
         log.info("Tema creado id={} autor={}", guardado.getId(), autor.username());
         return TemaResponse.de(guardado);
