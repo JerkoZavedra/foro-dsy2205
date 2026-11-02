@@ -1,25 +1,4 @@
--- =====================================================================
--- FORO EN LINEA - ms-foro
--- Tablas: CATEGORIAS, TEMAS, COMENTARIOS
--- Ejecutar UNA SOLA VEZ, conectado como FORO_APP, despues de
--- 01_crear_tablas_usuarios.sql.
---
--- Diseno de integridad (coherencia simple, sin sistemas complejos):
--- - TEMAS.CATEGORIA_ID es FK real hacia CATEGORIAS: ambas tablas
---   pertenecen al mismo microservicio (ms-foro), por lo que la FK es
---   apropiada. Solo se permite borrar una categoria sin temas.
--- - COMENTARIOS.TEMA_ID es FK real hacia TEMAS con ON DELETE CASCADE:
---   al eliminar un tema se eliminan automaticamente sus comentarios.
---   Esta es la regla explicita para "eliminar un tema con comentarios".
--- - TEMAS.AUTOR_ID y COMENTARIOS.AUTOR_ID son NUMBER simples, SIN FK
---   hacia USUARIOS: esa tabla pertenece a OTRO microservicio
---   (ms-usuarios) y el foro no debe depender de su esquema interno ni
---   consultarla directamente para autenticar. AUTOR_USERNAME guarda una
---   copia del nombre de usuario al momento de publicar. Esta es la
---   regla explicita para "eliminar un usuario con publicaciones": sus
---   temas y comentarios se conservan con el nombre guardado, incluso si
---   la cuenta se elimina despues en ms-usuarios.
--- =====================================================================
+
 
 CREATE TABLE CATEGORIAS (
     ID          NUMBER(19) GENERATED ALWAYS AS IDENTITY,

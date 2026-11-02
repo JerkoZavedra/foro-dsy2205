@@ -1,22 +1,4 @@
--- =====================================================================
--- FORO EN LINEA - Datos iniciales ficticios
--- Ejecutar UNA SOLA VEZ, conectado como FORO_APP, DESPUES de:
---   1) 01_crear_tablas_usuarios.sql y 02_crear_tablas_foro.sql
---   2) Haber arrancado ms-usuarios al menos una vez (crea admin,
---      usuario1 y usuario2 automaticamente si la tabla USUARIOS esta
---      vacia; ver ms-usuarios/README o el README raiz).
---
--- Cada INSERT usa subconsultas (SELECT ... WHERE NOT EXISTS) para que
--- volver a ejecutar este script por error NO duplique filas. Estos
--- SELECT a la tabla USUARIOS son parte de un script de carga manual de
--- datos, no de una consulta en tiempo de ejecucion de ms-foro: el
--- microservicio de foro nunca consulta la tabla USUARIOS para
--- autenticar ni para resolver un autor.
--- =====================================================================
 
--- ---------------------------------------------------------------------
--- 1. CATEGORIAS (6, cumple el minimo de 5 categorias distintas)
--- ---------------------------------------------------------------------
 INSERT INTO CATEGORIAS (NOMBRE, DESCRIPCION)
 SELECT 'Tecnologia', 'Programacion, hardware, software y noticias tecnologicas'
 FROM DUAL WHERE NOT EXISTS (SELECT 1 FROM CATEGORIAS WHERE NOMBRE = 'Tecnologia');
